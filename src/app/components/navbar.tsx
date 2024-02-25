@@ -1,6 +1,7 @@
-import { Box, Typography } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import { sofiaSans } from "../fonts";
 import Link from "next/link";
+import MenuIcon from '@mui/icons-material/Menu';
 
 export const Navbar = () => {
   return (
@@ -21,7 +22,7 @@ export const Navbar = () => {
         </Typography>
         <Box
           sx={{
-            display: "flex",
+            display: {xs: "none", sm: "flex"},
             justifyContent: "space-between",
             alignItems: "center",
           }}
@@ -63,6 +64,9 @@ export const Navbar = () => {
             </Typography>
           </Link>
         </Box>
+        <IconButton sx={{display: {xs: "block", sm: "none"}, color: "white"}}>
+          <MenuIcon />
+        </IconButton>
       </Box>
   );
 };
