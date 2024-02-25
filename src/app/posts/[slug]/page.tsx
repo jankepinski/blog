@@ -34,11 +34,11 @@ export default async function Post({ params }: any) {
             }
 
             if (entry.nodeType === "paragraph") {
-              return entry.content.map((content: any, index: number) => {
-                if (content.nodeType === "text") {
+              return entry.content
+                .filter((entry: any) => entry.nodeType === "text")
+                .map((content: any, index: number) => {
                   return <Paragraph key={index} text={content.value} />;
-                }
-              });
+                });
             }
             if (entry.nodeType === "embedded-entry-block") {
               return <CodeBlock key={index} code={entry.content} />;
