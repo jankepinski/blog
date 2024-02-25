@@ -15,7 +15,7 @@ export const TableOfContents = ({ sections }: TableOfContentsProps) => {
         top: 100,
         border: "2px solid #213041",
         borderRadius: 4,
-        display: "flex",
+        display: {sm: "none", md: "flex"},
         alignItems: "baseline",
         flexDirection: "column",
         p: 2,

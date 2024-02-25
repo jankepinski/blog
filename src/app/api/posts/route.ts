@@ -1,5 +1,5 @@
 import { NextApiRequest } from "next";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 const space_id = process.env.CONTENTFUL_SPACE_ID;
 const access_token = process.env.CONTENTFUL_ACCESS_TOKEN;

@@ -26,7 +26,7 @@ export default async function Post({ params }: any) {
   return (
     <>
       <Title title={post.title} subtitle={post.subtitle} />
-      <Box sx={{ display: "flex", gap: 12 }}>
+      <Box sx={{ display: {sm: "block", md: "flex"}, gap: 12 }}>
         <Box sx={{ flex: 2 }}>
           {post.body.map((entry: any, index: number) => {
             if (entry.nodeType === "heading-1") {
