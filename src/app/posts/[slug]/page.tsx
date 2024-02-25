@@ -1,7 +1,7 @@
 import { Title } from "./components/title";
 import { SectionTitle } from "./components/section-title";
 import { Paragraph } from "./components/paragraph";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { TableOfContents } from "./components/table-of-contents";
 import { Section } from "./components/section";
 import { CodeBlock } from "./components/code-block";
@@ -19,34 +19,29 @@ export default async function Post({ params }: any) {
 
   const post = await getPost(slug);
 
-  const sections = post.body.content
+  const sections = post.body
     .filter((entry: any) => entry.nodeType === "heading-1")
     .map((entry: any) => entry.content[0].value);
-
-  console.log(post.body.content);
 
   return (
     <>
       <Title title={post.title} subtitle={post.subtitle} />
       <Box sx={{ display: "flex", gap: 12 }}>
         <Box sx={{ flex: 2 }}>
-          {post.body.content.map((entry: any, index: number) => {
+          {post.body.map((entry: any, index: number) => {
             if (entry.nodeType === "heading-1") {
-              return (
-                <Section key={index} title={entry.content[0].value}>
-                  <SectionTitle title={entry.content[0].value} />
-                </Section>
-              );
+              return <Section key={index} title={entry.content[0].value} />;
             }
 
-            if (entry.nodeType === "paragraph" && !entry.content[0].marks[0]) {
-              return <Paragraph key={index} text={entry.content[0].value} />;
+            if (entry.nodeType === "paragraph") {
+              return entry.content.map((content: any, index: number) => {
+                if (content.nodeType === "text") {
+                  return <Paragraph key={index} text={content.value} />;
+                }
+              });
             }
-
-            if (
-              entry.nodeType === "paragraph" && entry.content[0].marks[0].type === "code"
-            ) {
-              return <CodeBlock key={index} entry={entry} />;
+            if (entry.nodeType === "embedded-entry-block") {
+              return <CodeBlock key={index} code={entry.content} />;
             }
           })}
         </Box>

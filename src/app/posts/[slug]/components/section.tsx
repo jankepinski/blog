@@ -1,7 +1,6 @@
 import { SectionTitle } from "./section-title";
 
 type SectionProps = {
-  children: any;
   title: string;
 };
 

@@ -18,7 +18,7 @@ export const Thumbnail = ({
   return (
     <Box
       sx={{
-        width: { xs: "80vw", md: "35vw" },
+        width: { xs: "80vw", md: "500px" },
         backgroundColor: "#1E262F",
         borderRadius: "12px",
         p: 6,
@@ -48,9 +48,9 @@ export const Thumbnail = ({
       <Typography className={sofiaSans.className} sx={{ mb: 4 }}>
         {description}
       </Typography>
-      <Link href={`/posts/${slug}`}>
+      <a href={`/posts/${slug}`}>
         <Typography sx={{ mb: 2, fontWeight: 800}} className={sofiaSans.className}>Read more</Typography>
-      </Link>
+      </a>
     </Box>
   );
 };
