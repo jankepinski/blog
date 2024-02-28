@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 const space_id = process.env.CONTENTFUL_SPACE_ID;
 const access_token = process.env.CONTENTFUL_ACCESS_TOKEN;
 
-export const GET = async (request: NextApiRequest, { params }: any) => {
+export const GET = async (request: Request, { params }: any) => {
   const { slug } = params;
   const post = await fetch(
     `https://cdn.contentful.com/spaces/${space_id}/environments/master/entries?access_token=${access_token}&fields.slug=${slug}&content_type=blogPost`,
