@@ -1,6 +1,11 @@
 import { Button } from "@mui/material";
 
-export const StyledButton = ({ children }: any) => {
+type StyledButtonProps = {
+  children: any;
+  buttonProps?: any;
+};
+
+export const StyledButton = ({ children, buttonProps }: any) => {
   return (
     <Button
       sx={{
@@ -13,7 +18,7 @@ export const StyledButton = ({ children }: any) => {
         color: "#fff",
         fontSize: "18px",
         borderRadius: "0px",
-        width: { xs: "160px", sm: "200px"},
+        width: { xs: "160px", sm: "200px" },
         height: "40px",
         fontWeight: "bold",
         border: "2px solid #213041",
@@ -25,6 +30,7 @@ export const StyledButton = ({ children }: any) => {
           backgroundColor: "#213041",
         },
       }}
+      {...buttonProps}
     >
       {children}
     </Button>
