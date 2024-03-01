@@ -7,7 +7,7 @@ import { Section } from "./components/section";
 import { CodeBlock } from "./components/code-block";
 
 const getPost = async (slug: string) => {
-  const res = await fetch(`${window.location.origin}/api/posts/${slug}`, {
+  const res = await fetch(`${process.env.BASE_API_URL}/api/posts/${slug}`, {
     cache: "no-store",
   });
   const post = await res.json();

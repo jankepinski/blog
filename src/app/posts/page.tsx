@@ -3,7 +3,7 @@ import { Thumbnail } from "./components/thumbnail";
 import { sofiaSans } from "../fonts";
 
 const getPosts = async () => {
-  const res = await fetch(`${window.location.origin}/api/posts`, {
+  const res = await fetch(`${process.env.BASE_API_URL}/api/posts`, {
     cache: "no-store",
   });
   const posts = await res.json();
