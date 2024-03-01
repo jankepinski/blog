@@ -7,7 +7,7 @@ import { Section } from "./components/section";
 import { CodeBlock } from "./components/code-block";
 
 const getPost = async (slug: string) => {
-  const res = await fetch(`/api/posts/${slug}`, {
+  const res = await fetch(`${window.location.origin}/api/posts/${slug}`, {
     cache: "no-store",
   });
   const post = await res.json();
@@ -26,7 +26,7 @@ export default async function Post({ params }: any) {
   return (
     <>
       <Title title={post.title} subtitle={post.subtitle} />
-      <Box sx={{ display: {sm: "block", md: "flex"}, gap: 12 }}>
+      <Box sx={{ display: { sm: "block", md: "flex" }, gap: 12 }}>
         <Box sx={{ flex: 2 }}>
           {post.body.map((entry: any, index: number) => {
             if (entry.nodeType === "heading-1") {

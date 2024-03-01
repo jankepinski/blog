@@ -7,7 +7,7 @@ import { sofiaSans } from "../fonts";
 import { StyledButton } from "../components/styled-button";
 
 const submitForm = async (email: string, message: string) => {
-  const response = await fetch("/api/emails", {
+  const response = await fetch(`${window.location.origin}/api/emails`, {
     method: "POST",
     body: JSON.stringify({ email, message }),
   });
