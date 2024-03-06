@@ -1,3 +1,3 @@
 import { Sofia_Sans } from "next/font/google";
 
-export const sofiaSans = Sofia_Sans({ subsets: ["latin"] });
+export const sofiaSans = Sofia_Sans({ subsets: ["latin"], display: "swap"});
