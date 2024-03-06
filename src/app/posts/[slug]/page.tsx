@@ -7,9 +7,31 @@ import { Section } from "./components/section";
 import { CodeBlock } from "./components/code-block";
 
 const getPost = async (slug: string) => {
-  const res = await fetch(`${process.env.BASE_API_URL}/api/posts/${slug}`);
-  const post = await res.json();
-  return post;
+  const space_id = process.env.CONTENTFUL_SPACE_ID;
+  const access_token = process.env.CONTENTFUL_ACCESS_TOKEN;
+
+  const post = await fetch(
+    `https://cdn.contentful.com/spaces/${space_id}/environments/master/entries?access_token=${access_token}&fields.slug=${slug}&content_type=blogPost`,
+    { cache: "no-store" }
+  ).then((res) => res.json());
+
+  const postResponse = post.items[0].fields;
+
+  postResponse.body = await Promise.all(
+    postResponse.body.content.map(async (entry: any, index: number) => {
+      if (entry.nodeType === "embedded-entry-block") {
+        entry.content = (
+          await fetch(
+            `https://cdn.contentful.com//spaces/${space_id}/environments/master/entries/${entry.data.target.sys.id}?access_token=${access_token}&content_type=code`,
+            { cache: "no-store" }
+          ).then((res) => res.json())
+        ).fields.code;
+      }
+      return entry;
+    })
+  );
+
+  return postResponse;
 };
 
 export default async function Post({ params }: any) {
