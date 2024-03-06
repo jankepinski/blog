@@ -29,8 +29,8 @@ export const TableOfContents = ({ sections }: TableOfContentsProps) => {
           letterSpacing: 2,
           alignSelf: "center",
           mb: 1,
+          fontFamily: sofiaSans.style.fontFamily
         }}
-        className={sofiaSans.className}
       >
         Table Of Contents
       </Typography>

@@ -75,8 +75,12 @@ export default function Contact() {
       }}
     >
       <label
-        className={sofiaSans.className}
-        style={{ alignSelf: "start", marginLeft: "5%", fontSize: "20px" }}
+        style={{
+          alignSelf: "start",
+          marginLeft: "5%",
+          fontSize: "20px",
+          fontFamily: sofiaSans.style.fontFamily,
+        }}
       >
         Email:
       </label>
@@ -84,16 +88,17 @@ export default function Contact() {
         type="email"
         onChange={(e) => setEmail(e.target.value)}
         value={email}
-        className={`${emailCss} ${sofiaSans.className}`}
+        className={`${emailCss}`}
+        style={{ fontFamily: sofiaSans.style.fontFamily }}
         required
       />
       <label
-        className={sofiaSans.className}
         style={{
           alignSelf: "start",
           marginLeft: "5%",
           fontSize: "20px",
           marginTop: "24px",
+          fontFamily: sofiaSans.style.fontFamily,
         }}
       >
         Message:
@@ -101,10 +106,11 @@ export default function Contact() {
       <textarea
         onChange={(e) => setMessage(e.target.value)}
         value={message}
-        className={`${messageCss} ${sofiaSans.className}`}
+        className={`${messageCss}`}
+        style={{ fontFamily: sofiaSans.style.fontFamily }}
         required
       ></textarea>
-      <Box sx={{mt: 5}}>
+      <Box sx={{ mt: 5 }}>
         <StyledButton buttonProps={{ type: "submit" }}>Send</StyledButton>
       </Box>
     </form>

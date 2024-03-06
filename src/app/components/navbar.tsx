@@ -18,7 +18,10 @@ export const Navbar = () => {
       }}
     >
       <Link href="/">
-        <Typography variant="h4" className={sofiaSans.className}>
+        <Typography
+          variant="h4"
+          sx={{ fontFamily: sofiaSans.style.fontFamily }}
+        >
           kepinski.dev
         </Typography>
       </Link>
@@ -33,8 +36,7 @@ export const Navbar = () => {
         <Link href="/">
           <Typography
             variant="body1"
-            className={sofiaSans.className}
-            sx={{ mx: 2 }}
+            sx={{ mx: 2, fontFamily: sofiaSans.style.fontFamily }}
           >
             Home
           </Typography>
@@ -42,8 +44,7 @@ export const Navbar = () => {
         <Link href="/posts">
           <Typography
             variant="body1"
-            className={sofiaSans.className}
-            sx={{ mx: 2 }}
+            sx={{ mx: 2, fontFamily: sofiaSans.style.fontFamily }}
           >
             Posts
           </Typography>
@@ -51,8 +52,7 @@ export const Navbar = () => {
         <Link href="/about">
           <Typography
             variant="body1"
-            className={sofiaSans.className}
-            sx={{ mx: 2 }}
+            sx={{ mx: 2, fontFamily: sofiaSans.style.fontFamily }}
           >
             About
           </Typography>
@@ -60,8 +60,7 @@ export const Navbar = () => {
         <Link href="/contact">
           <Typography
             variant="body1"
-            className={sofiaSans.className}
-            sx={{ mx: 2 }}
+            sx={{ mx: 2, fontFamily: sofiaSans.style.fontFamily }}
           >
             Contact
           </Typography>

@@ -11,19 +11,22 @@ export const Title = ({ title, subtitle }: TitleProps) => {
     <>
       <Typography
         variant="h3"
-        className={sofiaSans.className}
-        sx={{ fontWeight: "600", mt: 15 }}
+        sx={{
+          fontWeight: "600",
+          mt: 15,
+          fontFamily: sofiaSans.style.fontFamily,
+        }}
       >
         {title}
       </Typography>
       {subtitle && (
         <Typography
-          className={sofiaSans.className}
           sx={{
             fontSize: "20px",
             fontWeight: "500",
             color: "lightgray",
             mt: 4,
+            fontFamily: sofiaSans.style.fontFamily,
           }}
         >
           {subtitle}
