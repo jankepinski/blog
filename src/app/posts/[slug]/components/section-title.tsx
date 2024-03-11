@@ -9,8 +9,7 @@ export const SectionTitle = ({ title }: SectionTitleProps) => {
   return (
     <Typography
       variant="h4"
-      className={sofiaSans.className}
-      sx={{ fontWeight: 700, color: "#64e36e" }}
+      sx={{ fontWeight: 700, color: "#64e36e", fontFamily: sofiaSans.style.fontFamily }}
     >
       {title}
     </Typography>

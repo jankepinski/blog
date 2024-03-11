@@ -96,7 +96,7 @@ export const ExperienceStepper = () => {
       activeStep={2}
       orientation="vertical"
       connector={<QontoConnector />}
-      sx={{flex: 1}}
+      sx={{ flex: 1 }}
     >
       {steps.map((step, index) => {
         return (
@@ -106,14 +106,16 @@ export const ExperienceStepper = () => {
                 sx={{
                   color: "white",
                   fontSize: "24px",
+                  fontFamily: sofiaSans.style.fontFamily,
                 }}
-                className={sofiaSans.className}
               >
                 {step.label}
               </Typography>
               <Typography
-                sx={{ color: "lightgray" }}
-                className={sofiaSans.className}
+                sx={{
+                  color: "lightgray",
+                  fontFamily: sofiaSans.style.fontFamily,
+                }}
               >
                 {step.description}
               </Typography>

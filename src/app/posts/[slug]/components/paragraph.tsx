@@ -10,13 +10,13 @@ export const Paragraph = ({ text }: ParagraphProps) => {
 
       <Typography
         variant="body1"
-        className={sofiaSans.className}
         sx={{
           fontSize: "20px",
           fontWeight: "500",
           my: 4,
           wordWrap: "wrap",
           overflow: "hidden",
+          fontFamily: sofiaSans.style.fontFamily
         }}
       >
         {text}

@@ -33,8 +33,8 @@ export default async function Posts() {
           mb: 4,
           fontSize: "32px",
           fontWeight: "800",
+          fontFamily: sofiaSans.style.fontFamily,
         }}
-        className={sofiaSans.className}
       >
         Posts:
       </Typography>

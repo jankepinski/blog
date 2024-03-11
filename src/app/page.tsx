@@ -19,17 +19,20 @@ export default function Home() {
       >
         <Box>
           <Typography
-            className={sofiaSans.className}
-            sx={{ fontSize: {xs: "36px", sm:"48px"}, textAlign: { xs: "center", lg: "start" } }}
+            sx={{
+              fontSize: { xs: "36px", sm: "48px" },
+              textAlign: { xs: "center", lg: "start" },
+              fontFamily: sofiaSans.style.fontFamily,
+            }}
           >
             Hello, my name is Jan!
           </Typography>
           <Typography
-            className={sofiaSans.className}
             sx={{
-              fontSize: {xs: "28px", sm: "32px"},
+              fontSize: { xs: "28px", sm: "32px" },
               mt: -1,
               textAlign: { xs: "center", lg: "start" },
+              fontFamily: sofiaSans.style.fontFamily,
             }}
           >
             Im a professional fullstack developer.

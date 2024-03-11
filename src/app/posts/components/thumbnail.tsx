@@ -1,6 +1,5 @@
 import { sofiaSans } from "@/app/fonts";
 import { Box, Typography } from "@mui/material";
-import Link from "next/link";
 
 type ThumbnailProps = {
   title: string;
@@ -26,30 +25,37 @@ export const Thumbnail = ({
     >
       <Typography
         variant="h5"
-        sx={{ mb: 4, fontWeight: 700 }}
-        className={sofiaSans.className}
+        sx={{ mb: 4, fontWeight: 700, fontFamily: sofiaSans.style.fontFamily }}
       >
         {title}
       </Typography>
       {subtitle && (
         <Typography
-          className={sofiaSans.className}
           sx={{
             fontSize: "18px",
             fontWeight: "500",
             color: "#708090",
             mt: -4,
-            mb: 4
+            mb: 4,
+            fontFamily: sofiaSans.style.fontFamily,
           }}
         >
           {subtitle}
         </Typography>
       )}
-      <Typography className={sofiaSans.className} sx={{ mb: 4 }}>
+      <Typography sx={{ mb: 4, fontFamily: sofiaSans.style.fontFamily }}>
         {description}
       </Typography>
       <a href={`/posts/${slug}`}>
-        <Typography sx={{ mb: 2, fontWeight: 700}} className={sofiaSans.className}>Read more</Typography>
+        <Typography
+          sx={{
+            mb: 2,
+            fontWeight: 700,
+            fontFamily: sofiaSans.style.fontFamily,
+          }}
+        >
+          Read more
+        </Typography>
       </a>
     </Box>
   );

@@ -1,7 +1,6 @@
 import { Title } from "./components/title";
-import { SectionTitle } from "./components/section-title";
 import { Paragraph } from "./components/paragraph";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { TableOfContents } from "./components/table-of-contents";
 import { Section } from "./components/section";
 import { CodeBlock } from "./components/code-block";

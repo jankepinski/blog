@@ -29,15 +29,15 @@ export const TableOfContents = ({ sections }: TableOfContentsProps) => {
           letterSpacing: 2,
           alignSelf: "center",
           mb: 1,
+          fontFamily: sofiaSans.style.fontFamily
         }}
-        className={sofiaSans.className}
       >
         Table Of Contents
       </Typography>
       {sections.map((title, index) => {
         return (
           <Link href={`#${title.replace(/ /g, "-")}`} key={index}>
-            <Typography>{title}</Typography>
+            <Typography sx={{fontFamily: sofiaSans.style.fontFamily}}>{title}</Typography>
           </Link>
         );
       })}

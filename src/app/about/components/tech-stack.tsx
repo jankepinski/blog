@@ -25,7 +25,7 @@ const techStack = [
   "OpenAI Api",
   "Jira",
   "Confluence",
-  "Coda.io"
+  "Coda.io",
 ];
 
 export const TechStack = () => {
@@ -36,16 +36,25 @@ export const TechStack = () => {
           color: "white",
           fontSize: "28px",
           textAlign: "center",
-          mb: 2
+          mb: 2,
+          fontFamily: sofiaSans.style.fontFamily,
         }}
-        className={sofiaSans.className}
       >
         Tech Stack
       </Typography>
       <Box sx={{ display: "flex", flexWrap: "wrap", columnGap: 1, rowGap: 2 }}>
         {techStack.map((tech, index) => {
           return (
-            <Chip key={index} label={tech} sx={{color: "lightgray", backgroundColor: "#1E262F", fontSize: "16px"}} className={sofiaSans.className}/>
+            <Chip
+              key={index}
+              label={tech}
+              sx={{
+                color: "lightgray",
+                backgroundColor: "#1E262F",
+                fontSize: "16px",
+              }}
+              className={sofiaSans.className}
+            />
           );
         })}
       </Box>
