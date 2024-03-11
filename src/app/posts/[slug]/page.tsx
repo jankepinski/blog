@@ -5,10 +5,30 @@ import { Box, Typography } from "@mui/material";
 import { TableOfContents } from "./components/table-of-contents";
 import { Section } from "./components/section";
 import { CodeBlock } from "./components/code-block";
+import { envs } from "@/app/utils/envs/envs";
 
 const getPost = async (slug: string) => {
-  const res = await fetch(`${process.env.BASE_API_URL}/api/posts/${slug}`);
-  const post = await res.json();
+  const post = await fetch(
+    `https://cdn.contentful.com/spaces/${envs.CONTENTFUL_SPACE_ID}/environments/master/entries?access_token=${envs.CONTENTFUL_ACCESS_TOKEN}&fields.slug=${slug}&content_type=blogPost`,
+    { cache: "no-store" }
+  )
+    .then((res) => res.json())
+    .then((res) => res.items[0].fields);
+
+  post.body = await Promise.all(
+    post.body.content.map(async (entry: any, index: number) => {
+      if (entry.nodeType === "embedded-entry-block") {
+        entry.content = (
+          await fetch(
+            `https://cdn.contentful.com//spaces/${envs.CONTENTFUL_SPACE_ID}/environments/master/entries/${entry.data.target.sys.id}?access_token=${envs.CONTENTFUL_ACCESS_TOKEN}&content_type=code`,
+            { cache: "no-store" }
+          ).then((res) => res.json())
+        ).fields.code;
+      }
+      return entry;
+    })
+  );
+
   return post;
 };
 
