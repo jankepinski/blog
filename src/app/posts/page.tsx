@@ -1,10 +1,23 @@
 import { Box, Typography } from "@mui/material";
 import { Thumbnail } from "./components/thumbnail";
 import { sofiaSans } from "../fonts";
+import { envs } from "../utils/envs/envs";
 
 const getPosts = async () => {
-  const res = await fetch(`${process.env.BASE_API_URL}/api/posts`);
-  const posts = await res.json();
+  const entries = await fetch(
+    `https://cdn.contentful.com/spaces/${envs.CONTENTFUL_SPACE_ID}/environments/master/entries?access_token=${envs.CONTENTFUL_ACCESS_TOKEN}&content_type=blogPost`,
+    { cache: "no-store" }
+  ).then((res) => res.json());
+
+  const posts = entries.items.map((entry: any) => {
+    return {
+      title: entry.fields.title,
+      subtitle: entry.fields.subtitle,
+      description: entry.fields.description,
+      slug: entry.fields.slug,
+    };
+  });
+
   return posts;
 };
 

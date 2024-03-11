@@ -49,7 +49,7 @@ export const Thumbnail = ({
         {description}
       </Typography>
       <a href={`/posts/${slug}`}>
-        <Typography sx={{ mb: 2, fontWeight: 800}} className={sofiaSans.className}>Read more</Typography>
+        <Typography sx={{ mb: 2, fontWeight: 700}} className={sofiaSans.className}>Read more</Typography>
       </a>
     </Box>
   );
